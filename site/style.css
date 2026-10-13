@@ -1,10 +1,131 @@
+/* Общая «питательная среда»: тёмно-зелёная палитра */
+:root {
+  --bg-deep: #06231c;
+  --bg-medium: #0b3a2e;
+  --accent: #58d6a3;
+  --accent-soft: #9ef0c9;
+  --danger: #ff6b6b;
+  --text: #e6fff5;
+}
+
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 2rem 1rem;
   font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at 50% 30%, var(--bg-medium), var(--bg-deep));
+  color: var(--text);
 }
 
 #game {
   max-width: 960px;
   margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 .25rem;
+  letter-spacing: .04em;
+  color: var(--accent-soft);
+}
+
+.hint {
+  margin: 0 0 1rem;
+  opacity: .8;
+}
+
+#stage-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px rgba(88, 214, 163, .25), 0 12px 40px rgba(0, 0, 0, .45);
+}
+
+#stage {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+#hud {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-soft);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  pointer-events: none;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 20, 16, .72);
+  transition: opacity .2s ease;
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+#panel {
+  max-width: 460px;
+  padding: 1.4rem 1.8rem;
+  text-align: center;
+  background: rgba(11, 58, 46, .92);
+  border: 1px solid rgba(158, 240, 201, .35);
+  border-radius: 14px;
+}
+
+#panel h2 {
+  margin: 0 0 .5rem;
+  color: var(--accent-soft);
+}
+
+#panel p {
+  margin: 0 0 1rem;
+  line-height: 1.45;
+}
+
+#start-btn {
+  padding: .65rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bg-deep);
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .1s ease, background .15s ease;
+}
+
+#start-btn:hover {
+  background: var(--accent-soft);
+  transform: scale(1.04);
+}
+
+#records {
+  margin-top: 1.5rem;
+}
+
+#records h2 {
+  font-size: 1.1rem;
+  color: var(--accent-soft);
+}
+
+#records-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  line-height: 1.6;
+}
+
+#records-list:empty::after {
+  content: "Пока пусто — сыграйте первый забег!";
+  opacity: .6;
 }
