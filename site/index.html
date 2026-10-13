@@ -3,14 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Командная игра</title>
+  <title>Cell Runner — браузерная игра</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main id="game">
-    <h1>Здесь появится игра</h1>
-    <p>Реализацию выполняет разработчик по TASK.md.</p>
+    <h1>Cell Runner</h1>
+    <p class="hint">Управляйте клеткой: пробел / стрелка вверх / клик мышью — прыжок.</p>
+
+    <div id="stage-wrap">
+      <canvas id="stage" width="960" height="360"></canvas>
+
+      <div id="hud">
+        <span id="score">Очки: 0</span>
+        <span id="speed">Скорость: x1.0</span>
+      </div>
+
+      <div id="overlay">
+        <div id="panel">
+          <h2 id="panel-title">Cell Runner</h2>
+          <p id="panel-text">Одноноклеточный организм плывёт по питательной среде.
+            Собирайте молекулы глюкозы и избегайте токсинов и вирусов!</p>
+          <button id="start-btn" type="button">Старт</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="records">
+      <h2>Лучшие результаты сессии</h2>
+      <ol id="records-list"></ol>
+    </section>
   </main>
+
   <script src="./script.js"></script>
 </body>
 </html>
